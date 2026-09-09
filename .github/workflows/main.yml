@@ -15,14 +15,4 @@ jobs:
       - name: Run Node.js File
         run: node app.js
 
-  my-second-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print all system information
-        run: |
-          lsb_release -a
-          uname -a
-          lscpu
-          nproc
-          free -h
-          lsblk
+ 
