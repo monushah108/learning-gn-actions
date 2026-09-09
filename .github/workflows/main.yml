@@ -1,0 +1,28 @@
+name: My first workflow
+on: [push, workflow_dispatch]
+jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List all files
+        run: ls -a
+      - name: Print Working Directory
+        run: pwd
+      - name: create js file
+        run: echo 'console.log("Hello World!");' > app.js
+      - name: List all files
+        run: ls -a
+      - name: Run Node.js File
+        run: node app.js
+
+  my-second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print all system information
+        run: |
+          lsb_release -a
+          uname -a
+          lscpu
+          nproc
+          free -h
+          lsblk
