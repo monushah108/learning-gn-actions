@@ -1,28 +1,13 @@
 name: My first workflow
 on: [push, workflow_dispatch]
 jobs:
-  # my-first-job:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: List all files
-  #       run: ls -a
-  #     - name: Print Working Directory
-  #       run: pwd
-  #     - name: checkout Repo
-  #       uses: actions/checkout@v6
-  #     - name: List all files
-  #       run: ls -a
-  #     - name: print workflow file contents.
-  #       run: cat ./.github/workflows/main.yml
-
-  my-second-job:
+  my-first-job:
+    env:
+      MY_ENV_VAR: "Hello, World!"
+      HELLO: "Hello, World!"    
     runs-on: ubuntu-latest
     steps:
-      - name: Print Node Version
-        run: node -v
-      - name: install Node.js version 24
-        uses: actions/setup-node@v6
-        with:
-          node-version: "24"
-      - name: Print Node Version
-        run: node -v
+      - run: echo "${{toJSON(env)}}"
+      - run: echo "${{toJSON(vars)}}"
+      - run: echo "${{toJSON(secrets)}}"
+      - run: echo "${{toJSON(runner)}}"
